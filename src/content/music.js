@@ -12,5 +12,7 @@ export const favoriteGhazals = [
   { title: "Chupke Chupke Raat Din", artist: "Ghulam Ali" },
   { title: "Ranjish Hi Sahi", artist: "Mehdi Hassan" },
   { title: "Chitthi Na Koi Sandesh", artist: "Jagjit Singh" },
-  { title: "Joshwalon Ko Khabar Kya", artist: "Jagjit Singh" },
+  { title: "Hoshwalon Ko Khabar Kya", artist: "Jagjit Singh" },
+  { title: "Kal Chaudhvin Ki Raat Thi", artist: "Jagjit Singh" },
+  
 ];
