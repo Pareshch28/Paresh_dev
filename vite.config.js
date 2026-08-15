@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react";
 // (repo named "<username>.github.io"), leave base as "/".
 export default defineConfig({
   plugins: [react()],
-  base: "/paresh-portfolio/",
+  base: "/Paresh_dev/",
   build: {
     outDir: "dist",
     sourcemap: false,
