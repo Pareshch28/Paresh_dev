@@ -1,0 +1,10 @@
+<!-- PLACEHOLDER personal mark. Replace this file with your real uploaded
+     smiley/emoji clipart (e.g. save it as paresh-mark.png and update the
+     <img src> in src/components/PersonalMark.jsx to point at it). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#14161C"/>
+  <circle cx="50" cy="46" r="26" fill="none" stroke="#E3A455" stroke-width="4"/>
+  <circle cx="41" cy="40" r="3" fill="#E3A455"/>
+  <circle cx="59" cy="40" r="3" fill="#E3A455"/>
+  <path d="M36 54 Q50 66 64 54" fill="none" stroke="#E3A455" stroke-width="4" stroke-linecap="round"/>
+</svg>
