@@ -18,10 +18,10 @@ export const certifications = [
       "https://www.credly.com/badges/5160c0d3-bdb9-4fa2-a2e9-904d1b463e57/public_url",
   },
   {
-    name: "CSA Certification",
-    issuer: "[Add issuer]",
+    name: "ServiceNow Certified System Administrator (CSA)",
+    issuer: "ServiceNow",
     image: "placeholder",
-    verificationUrl: "", // [Add Credly verification URL]
+    verificationUrl: "https://www.credly.com/badges/1f090eaf-5056-4ac3-aa7d-813b669f2ca1/public_url", // [Add Credly verification URL]
     comingSoon: true,
   },
 ];
