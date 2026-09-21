@@ -47,5 +47,5 @@ export const profile = {
   location: "India",
 
   // Leave empty and the UI will render "[Add email]" instead of inventing one.
-  email: "",
+  email: "choudaryparesh28@gmail.com",
 };
