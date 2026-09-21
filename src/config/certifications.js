@@ -22,6 +22,6 @@ export const certifications = [
     issuer: "ServiceNow",
     image: "placeholder",
     verificationUrl: "https://www.credly.com/badges/1f090eaf-5056-4ac3-aa7d-813b669f2ca1/public_url", // [Add Credly verification URL]
-    comingSoon: false,
+    
   },
 ];
