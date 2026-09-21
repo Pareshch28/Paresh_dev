@@ -1,6 +1,7 @@
 import { profile } from "../config/profile.js";
 import HeroBackground from "../components/HeroBackground.jsx";
 import { trackEvent } from "../utils/analytics.js";
+import { useRotatingText } from "../hooks/useRotatingText.js";
 
 // Turns each part into an array of {char, delay} so the letter-by-letter
 // reveal keeps one continuous stagger across both halves of the heading,
@@ -20,6 +21,10 @@ function buildLetterTimeline(parts, startDelay = 1.1, speed = 0.035) {
 export default function Hero() {
   const [part1, part2] = buildLetterTimeline(profile.heroTitleParts);
   const fullTitle = profile.heroTitleParts.join(" ");
+  const { current: nowPlaying, fading } = useRotatingText(
+    profile.currently.songs,
+    profile.currently.rotateMs
+  );
 
   return (
     <section className="hero" id="hero">
@@ -67,7 +72,10 @@ export default function Hero() {
 
         <div className="hero__currently">
           <span className="hero__pulse" />
-          CURRENTLY <b>{profile.currently.emoji} {profile.currently.text}</b>
+          CURRENTLY{" "}
+          <b className={`hero__currently-song ${fading ? "hero__currently-song--fading" : ""}`}>
+            {profile.currently.emoji} {nowPlaying}
+          </b>
         </div>
       </div>
 

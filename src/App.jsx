@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 
 import Nav from "./components/Nav.jsx";
 import JourneyProgress from "./components/JourneyProgress.jsx";
+import WelcomeBlast from "./components/WelcomeBlast.jsx";
+import { getTodaysFestival } from "./config/festivals.js";
 
 import Hero from "./sections/Hero.jsx";
 import About from "./sections/About.jsx";
@@ -21,7 +23,28 @@ import Footer from "./sections/Footer.jsx";
 
 import { initAnalytics, trackEvent } from "./utils/analytics.js";
 
+const FESTIVAL_STORAGE_PREFIX = "paresh-festival-seen-";
+
 export default function App() {
+  const [festival, setFestival] = useState(null);
+
+  useEffect(() => {
+    const today = getTodaysFestival();
+    if (!today) return;
+
+    // Show once per day per browser — refreshing the same day won't repeat it,
+    // but it reappears next time this (or another) festival date comes around.
+    const dateKey = new Date().toISOString().slice(0, 10);
+    const storageKey = `${FESTIVAL_STORAGE_PREFIX}${today.id}-${dateKey}`;
+    try {
+      if (window.localStorage.getItem(storageKey)) return;
+      window.localStorage.setItem(storageKey, "1");
+    } catch {
+      // localStorage unavailable (e.g. private browsing) — show it anyway, no harm done.
+    }
+    setFestival(today);
+  }, []);
+
   useEffect(() => {
     initAnalytics();
 
@@ -47,6 +70,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
+      {festival && <WelcomeBlast festival={festival} onDismiss={() => setFestival(null)} />}
       <Nav />
       <JourneyProgress />
       <main id="main">

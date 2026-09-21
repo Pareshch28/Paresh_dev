@@ -970,3 +970,115 @@
 .footer__links a:hover {
   color: var(--accent);
 }
+
+/* ---------- Festival welcome blast ---------- */
+.blast {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 6, 8, 0.88);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  animation: blast-fade-in 0.5s var(--ease) forwards;
+  overflow: hidden;
+}
+.blast--closing {
+  animation: blast-fade-out 0.4s var(--ease) forwards;
+}
+@keyframes blast-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes blast-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.blast__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.blast__particle {
+  position: absolute;
+  top: -10%;
+  display: inline-block;
+  animation-name: blast-fall;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+@keyframes blast-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(115vh) rotate(340deg);
+    opacity: 0.9;
+  }
+}
+
+.blast__card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 520px;
+  padding: 0 32px;
+  animation: rise 0.7s var(--ease) 0.15s both;
+}
+.blast__emoji {
+  font-size: clamp(36px, 6vw, 54px);
+  display: block;
+  margin-bottom: 22px;
+}
+.blast__message {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+}
+.blast__hint {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blast {
+    animation: none;
+  }
+  .blast__particle {
+    display: none; /* skip the falling-emoji motion; message still shows, no motion */
+  }
+  .blast__card {
+    animation: none;
+  }
+}
+
+/* ---------- Rotating "currently listening" song ---------- */
+.hero__currently-song {
+  display: inline-block;
+  transition: opacity 0.26s var(--ease), transform 0.26s var(--ease);
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero__currently-song--fading {
+  opacity: 0;
+  transform: translateY(4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__currently-song {
+    transition: none;
+  }
+}
