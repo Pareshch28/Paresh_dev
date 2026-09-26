@@ -1082,3 +1082,108 @@
     transition: none;
   }
 }
+/* ---------- Animated route map (Bhainsa → Ayodhya) ---------- */
+.route-map {
+  margin: 36px 0 40px;
+}
+.route-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.route-map__line-bg {
+  fill: none;
+  stroke: var(--dusk);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.16;
+}
+
+.route-map__line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.8s var(--ease) 0.15s;
+}
+.route-map.is-visible .route-map__line {
+  stroke-dashoffset: 0;
+}
+
+.route-map__stop {
+  fill: var(--accent);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.route-map.is-visible .route-map__stop {
+  opacity: 1;
+}
+
+.route-map__marker circle {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.route-map__marker--end circle {
+  stroke: var(--dusk);
+}
+.route-map__marker text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  fill: var(--text-secondary);
+}
+
+.route-map__traveler {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px var(--accent));
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: route-travel 6.5s linear infinite;
+  animation-play-state: paused;
+}
+.route-map.is-visible .route-map__traveler {
+  animation-play-state: running;
+  animation-delay: 2s;
+}
+@keyframes route-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-map__line {
+    transition: none;
+    stroke-dashoffset: 0;
+  }
+  .route-map__stop {
+    transition: none;
+    opacity: 1;
+  }
+  .route-map__traveler {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .route-map__marker text {
+    font-size: 10px;
+  }
+}

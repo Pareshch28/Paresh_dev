@@ -2,6 +2,7 @@ import { travelIntroParagraphs, featuredJourney } from "../content/travel.js";
 import { renderRich } from "../utils/text.jsx";
 import ExternalLink from "../components/ExternalLink.jsx";
 import Reveal from "../components/Reveal.jsx";
+import RouteMap from "../components/RouteMap.jsx";
 
 export default function Travel() {
   return (
@@ -18,6 +19,7 @@ export default function Travel() {
         <Reveal className="journey-feature">
           <span className="eyebrow">Featured journey</span>
           <h3>{featuredJourney.route}</h3>
+          <RouteMap />
           <div className="prose">
             {featuredJourney.paragraphs.map((p, i) => (
               <p key={i}>{renderRich(p)}</p>
