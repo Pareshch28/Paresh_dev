@@ -10,7 +10,7 @@ export default function PersonalMark() {
   }
 
   return (
-    
+    <a
       href="#top"
       className="personal-mark"
       aria-label="Paresh — back to top"
