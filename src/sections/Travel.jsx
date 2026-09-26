@@ -30,11 +30,11 @@ export default function Travel() {
           </ExternalLink>
         </Reveal>
 
-        <Reveal className="travel__gallery-teaser">
+        {/*<Reveal className="travel__gallery-teaser">
           <div className="gallery-placeholder">
             <span>More travel photos coming soon</span>
           </div>
-        </Reveal>
+        </Reveal>*/}
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ import Certifications from "./sections/Certifications.jsx";
 import Stories from "./sections/Stories.jsx";
 import Music from "./sections/Music.jsx";
 import Travel from "./sections/Travel.jsx";
-import Moments from "./sections/Moments.jsx";
+//import Moments from "./sections/Moments.jsx";
 import ThingsILike from "./sections/ThingsILike.jsx";
 import Social from "./sections/Social.jsx";
 import Contact from "./sections/Contact.jsx";
@@ -83,7 +83,7 @@ export default function App() {
         <Stories />
         <Music />
         <Travel />
-        <Moments />
+        {/* <Moments /> */}
         <ThingsILike />
         <Social />
         <Contact />
